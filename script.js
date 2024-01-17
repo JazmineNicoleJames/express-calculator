@@ -9,7 +9,7 @@ function calculateMeanMedianMode(nums) {
 
     for(let i=0; i < nums.length; i++) {
         if(isNaN(nums[i])){
-            throw new ExpressError(`${nums[i]} is not a number.`,400)
+            throw new ExpressError(`${nums[i]} is not a number.`,400);
         };
 
         sum += nums[i];
@@ -104,15 +104,15 @@ app.get('/all', (req, res) => {
         mean: mean,
         median: median, 
         mode: mode
-    })
-})
+    });
+});
 
 
 app.use((error, req, res, next) => {
     let status = error.status;
     let message = error.message;
-    res.status(status).json({ error: {message, status}})
-})
+    res.status(status).json({ error: {message, status}});
+});
 
 
 app.listen(3000, function() {
